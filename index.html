@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cartoon Number Guessing — Web</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>✨ Cartoon Number Guessing</h1>
+    <p class="lead">Play the friendly Cartoon Number Guessing Game in your browser. Hints, levels, and a local leaderboard.</p>
+  </header>
+
+  <main class="container">
+    <section class="controls">
+      <label>Player name
+        <input id="playerName" placeholder="Player" />
+      </label>
+
+      <label>Character
+        <select id="characterSel">
+          <option value="1">🐱 Cat</option>
+          <option value="2">🤖 Robot</option>
+          <option value="3">🐼 Panda</option>
+          <option value="4">🦖 Dino</option>
+        </select>
+      </label>
+
+      <label>Level
+        <select id="levelSel">
+          <option value="1">Easy (1–10)</option>
+          <option value="2">Medium (1–50)</option>
+          <option value="3">Hard (1–100)</option>
+        </select>
+      </label>
+
+      <div class="row">
+        <button id="startBtn" class="btn">Start Round ▶</button>
+        <button id="hintBtn" class="btn secondary">Hint 💡</button>
+      </div>
+    </section>
+
+    <section class="game">
+      <div class="status">
+        <div id="speech">Press <strong>Start Round</strong> to begin.</div>
+        <div class="meta" id="meta">Hints: 3 &nbsp; Attempts: 0 &nbsp; Score: 0</div>
+      </div>
+
+      <div class="play">
+        <input id="guessInput" type="number" placeholder="Enter guess" />
+        <button id="tryBtn" class="btn">Try!</button>
+      </div>
+
+      <div id="log" class="log" aria-live="polite"></div>
+    </section>
+
+    <aside class="leaderboard">
+      <h2>Leaderboard (Local)</h2>
+      <ol id="leaderList"></ol>
+      <div class="leader-actions">
+        <button id="clearBoard" class="btn small">Clear</button>
+        <a id="openAssets" class="small" href="../assets/" target="_blank">Open assets/</a>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <small>Sound: place wav files in `assets/sounds/` (start.wav, win.wav, pop.wav, hint.wav, lose.wav). This web version uses LocalStorage for leaderboard.</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
